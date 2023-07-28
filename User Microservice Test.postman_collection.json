@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "0780e560-c74c-4fa7-8cb4-25260c600202",
+		"name": "User Microservice Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17878216"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ade@yopmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1245847",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}users/login",
+							"host": [
+								"{{URL}}users"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Ola",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Adesida",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ade@yopmail.ng",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1245847",
+							"type": "text"
+						},
+						{
+							"key": "userType",
+							"value": "user",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}users",
+					"host": [
+						"{{URL}}users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get A User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}users/45",
+					"host": [
+						"{{URL}}users"
+					],
+					"path": [
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJUeXBlIjoiYWRtaW4iLCJzdWIiOnsiaWQiOjF9fSwiaWF0IjoxNjkwNDgyODIwLCJleHAiOjE2OTA0ODY0MjB9.nP_p35U3ASfO93x8qcLc15tAi0bg_q7NwfvsBT5z--s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Isaiah",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "lastName",
+							"value": "Adedeji",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "olu@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}users",
+					"host": [
+						"{{URL}}users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJUeXBlIjoiYWRtaW4iLCJzdWIiOnsiaWQiOjF9fSwiaWF0IjoxNjkwNTAyNDc0LCJleHAiOjE2OTA1MDYwNzR9.sS1jYq4rmrHIhaUj7ZAhtRL1g-o0On7_44BDYbJbwaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}users",
+					"host": [
+						"{{URL}}users"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1",
+							"description": "optional, default is 10",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "2",
+							"description": "optional, default is 1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete A User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJUeXBlIjoidXNlciIsInN1YiI6eyJpZCI6OX19LCJpYXQiOjE2OTA1MDI1NTAsImV4cCI6MTY5MDUwNjE1MH0.EwbtkGsm2we5LlLu8_kpCbMG0IhjCDqVQb-HtGB_kXI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}users/4",
+					"host": [
+						"{{URL}}users"
+					],
+					"path": [
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:4003/api/v1/",
+			"type": "string"
+		},
+		{
+			"key": "USER_TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
