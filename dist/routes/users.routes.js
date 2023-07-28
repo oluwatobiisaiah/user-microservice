@@ -15,7 +15,7 @@ const userToken = new token_1.validateUserToken();
 const adminToken = new token_1.validateUserAdminToken();
 userRoute
     .route("/")
-    .get(adminToken.validateAdminToken, (0, asyncWrapper_1.default)(users_controllers_1.getAllUsers)) /*Get all users,only accessible to admin */
+    .get(adminToken.validateAdminToken, (0, asyncWrapper_1.default)(users_controllers_1.getAllUsers)) /*Get all users,only accessible to admin, you can paginate the response for this enpoint using the page and limit optional parameters */
     .post(user_validator_1.userValidation, (0, asyncWrapper_1.default)(users_controllers_1.createUser)) /*Create a user */
     .patch(userToken.validateToken, user_validator_1.partialUserValidation, (0, asyncWrapper_1.default)(users_controllers_1.updateUser)); /*Update a user,only authenticated user can access this */
 userRoute

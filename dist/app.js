@@ -53,6 +53,7 @@ app.use(internalErrorHandler_1.default);
     })
         .catch((err) => {
         console.log(err.message);
+        return process.exit(1);
     });
     app.listen(secrets_1.PORT, () => {
         if (secrets_1.NODE_ENV === "development") {

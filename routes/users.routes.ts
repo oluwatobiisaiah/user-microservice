@@ -28,7 +28,7 @@ userRoute
   .get(
     adminToken.validateAdminToken,
     asyncWrapper(getAllUsers)
-  ) /*Get all users,only accessible to admin */
+  ) /*Get all users,only accessible to admin, you can paginate the response for this enpoint using the page and limit optional parameters */
   .post(userValidation, asyncWrapper(createUser)) /*Create a user */
   .patch(
     userToken.validateToken,

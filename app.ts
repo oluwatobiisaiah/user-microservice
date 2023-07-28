@@ -62,6 +62,7 @@ app.use(errorHandlerMiddleware);
     })
     .catch((err) => {
       console.log(err.message);
+      return process.exit(1);
     });
 
   app.listen(PORT, () => {

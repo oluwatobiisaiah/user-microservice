@@ -12,7 +12,7 @@ export const getOneById = async (id: number): Promise<UserOuput> => {
   const user = await Users.findOne({ where: { id } });
   if (user) {
     return user.dataValues;
-  }
+  } 
   throw createCustomError("User not found", StatusCodes.NOT_FOUND);
 };
 

@@ -9,7 +9,7 @@ interface UserAttributes {
     updatedAt?: Date;
   }
 export interface UserInput extends Pick<UserAttributes, 'firstName'|'lastName'|'email'|'password'|'userType'> {}
-export interface UserOuput extends UserAttributes {}
+export interface UserOuput extends  UserAttributes {}
 export interface UserUpdateInput extends Partial<UserInput> {}
 
 export interface UserTokenPayload{
