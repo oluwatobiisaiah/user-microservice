@@ -19,10 +19,10 @@ const userValidation = (req, res, next) => {
 exports.userValidation = userValidation;
 const partialUserValidation = (req, res, next) => {
     const schema = joi_1.default.object({
-        firstName: joi_1.default.string().min(3).max(30).trim().required(),
-        lastName: joi_1.default.string().min(3).max(30).trim().required(),
-        email: joi_1.default.string().email().required(),
-        userType: joi_1.default.string().valid("admin", "user").trim().required(),
+        firstName: joi_1.default.string().min(3).max(30).trim(),
+        lastName: joi_1.default.string().min(3).max(30).trim(),
+        email: joi_1.default.string().email(),
+        userType: joi_1.default.string().valid("admin", "user").trim(),
     });
     (0, validatonHandler_1.default)(req, res, next, schema);
 };

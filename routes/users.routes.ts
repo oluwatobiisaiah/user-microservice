@@ -12,23 +12,38 @@ import {
   getAUser,
   getAllUsers,
   loginUser,
+  updateUser,
 } from "../controllers/users.controllers";
+import { validateUserToken, validateUserAdminToken } from "../utils/main/token";
 
 const userRoute = Router();
 
 userRoute.use(apiLimiter); /*Rate Limiter*/
 
+const userToken = new validateUserToken();
+const adminToken = new validateUserAdminToken();
+
 userRoute
   .route("/")
-  .get(asyncWrapper(getAllUsers)) /*Get all users,only accessible to admin */
+  .get(
+    adminToken.validateAdminToken,
+    asyncWrapper(getAllUsers)
+  ) /*Get all users,only accessible to admin */
   .post(userValidation, asyncWrapper(createUser)) /*Create a user */
-  .patch(partialUserValidation); /*Update a user */
+  .patch(
+    userToken.validateToken,
+    partialUserValidation,
+    asyncWrapper(updateUser)
+  ); /*Update a user,only authenticated user can access this */
 
 userRoute
   .route("/:id")
   .get(asyncWrapper(getAUser))
-  .delete(asyncWrapper(deleteAUser));
-  
+  .delete(
+    adminToken.validateAdminToken,
+    asyncWrapper(deleteAUser)
+  ); /*Delete a user,only accessible to admin */
+
 userRoute.route("/login").post(userLoginValidation, asyncWrapper(loginUser));
 
 export default userRoute;

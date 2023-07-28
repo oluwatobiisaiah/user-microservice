@@ -24,10 +24,10 @@ export const partialUserValidation = (
   next: NextFunction
 ) => {
   const schema = Joi.object({
-    firstName: Joi.string().min(3).max(30).trim().required(),
-    lastName: Joi.string().min(3).max(30).trim().required(),
-    email: Joi.string().email().required(),
-    userType: Joi.string().valid("admin", "user").trim().required(),
+    firstName: Joi.string().min(3).max(30).trim(),
+    lastName: Joi.string().min(3).max(30).trim(),
+    email: Joi.string().email(),
+    userType: Joi.string().valid("admin", "user").trim(),
   });
 
   validationHandler(req, res, next, schema);
